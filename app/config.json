@@ -1,0 +1,17 @@
+{
+    "model_configs":{
+        "model_root_path" : "/home/justintian/Desktop/FaceRecognition/models",
+        "backend" : "trt",
+        "det_onnx" : "centerface/onnx/centerface_480_640.onnx",
+        "det_trt"  : "centerface/trt/centerface.trt",
+        "rec_onnx"    : "arcface/onnx/r50_ms1m.onnx",
+        "rec_trt"     : "arcface/trt/r50_ms1m.trt",
+        "max_size"        : [480, 640],
+        "max_rec_batch_size" : 16,
+        "device" : "cuda",
+        "landmarks":true,
+        "nms_threshold":0.35,
+        "l2_threshold" : 1.2,
+        "nmslib_saved_path" : "/home/justintian/Desktop/FaceRecognition/FaceModels/all_faces.pkl"
+    }
+}
