@@ -6,7 +6,7 @@ Current inferencing backend supports ONNX and TensorRT models.
 
 The first attempt is to saving face embedding vectors into a MongoDB collection and query the nearest neighbor of a detected face from the collection. I tried to write an aggregate query but the query reponse takes really long time even I have only 100+ documents in the collection. 
 
-I cannot find an off-shelf solution of high dimension vector similarity query in a database system. Postgresql CUBE method only supports an up to 100 dimension vector. There are ways to work around this limit and use a 128-d vector. But Postgres still won't work on 512-d vectors. Most recent face recognition models like arcface or cosface embeds a face picture into a 512-d vec which is far beyond the capability of Postgres.
+I cannot find an off-shelf solution for high dimension vector similarity querying in a database system. Postgresql CUBE method only supports an up to 100 dimension vector. There are ways to work around this limit and use a 128-d vector. But Postgres still won't work on 512-d vectors. Most recent face recognition models like arcface or cosface embeds a face picture into a 512-d vec which is far beyond the capability of Postgres.
 
 Optimizing a database engine to fit this certain task is beyond my reach now. Then I look into in-memory elastic search methods. There are few established tools available. Annoy from Spotify, FAISS from FaceBook and Nmslib from a bunch of Ph.D. students (later adopted by AWS to their elastic-search service). I pick nmslib in this repo because it can be easily installed with "pip install" cmd. 
 
